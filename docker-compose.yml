@@ -1,0 +1,32 @@
+version: '3.8'
+
+services:
+  hardhat:
+    image: node:18
+    ports:
+      - "8545:8545"
+    working_dir: /usr/src/app
+    volumes:
+      - .:/usr/src/app
+    command: npx hardhat node
+    networks:
+      - my-network
+
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    environment:
+      - ETHEREUM_URL=http://hardhat:8545
+    depends_on:
+      - hardhat
+    volumes:
+      - .:/usr/src/app
+    networks:
+      - my-network
+
+networks:
+  my-network:
+    driver: bridge

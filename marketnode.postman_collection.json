@@ -1,0 +1,97 @@
+{
+	"info": {
+		"_postman_id": "b139a214-23a2-43ed-b52f-01003da4b30c",
+		"name": "marketnode",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "36963512"
+	},
+	"item": [
+		{
+			"name": "total-supply",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": "http://localhost:3000/token/total-supply"
+			},
+			"response": []
+		},
+		{
+			"name": "get-balance-address",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:3000/token/balance/0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266"
+			},
+			"response": []
+		},
+		{
+			"name": "token-transfer",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"to\": \"0x8626f6940E2eb28930eFb4CeF49B2d1F2C9C1199\", \"amount\": \"550\"}"
+				},
+				"url": "http://localhost:3000/token/transfer"
+			},
+			"response": []
+		},
+		{
+			"name": "mint-token",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"to\": \"0x8626f6940E2eb28930eFb4CeF49B2d1F2C9C1199\",\"amount\": \"1000\"}"
+				},
+				"url": "http://localhost:3000/token/mint"
+			},
+			"response": []
+		},
+		{
+			"name": "burn-token",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"amount\": \"500\"}"
+				},
+				"url": "http://localhost:3000/token/burn"
+			},
+			"response": []
+		},
+		{
+			"name": "token info",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:3000/token/info"
+			},
+			"response": []
+		}
+	]
+}
