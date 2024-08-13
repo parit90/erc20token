@@ -26,6 +26,7 @@ services:
     command: >
       sh -c "
       sleep 10 &&
+      npm install &&
       npx hardhat compile &&
       npm run build &&
       npm run start:prod &&
