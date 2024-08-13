@@ -7,7 +7,9 @@ export class TokenService {
   private contract: Contract;
 
   constructor() {
-    const provider = new ethers.providers.JsonRpcProvider('http://127.0.0.1:8545');
+    const provider = new ethers.providers.JsonRpcProvider('http://hardhat:8545');
+    console.log('Private Key: ', process.env.PRIVATE_KEY);
+    console.log('TOKEN_CONTRACT_ADDRESS: ', process.env.TOKEN_CONTRACT_ADDRESS,);
     const wallet = new ethers.Wallet(process.env.PRIVATE_KEY, provider);
     this.contract = new ethers.Contract(
       process.env.TOKEN_CONTRACT_ADDRESS,
