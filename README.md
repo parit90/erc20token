@@ -24,9 +24,19 @@ Before you begin, make sure you have the following installed:
 git clone https://github.com/parit90/erc20token.git
 cd erc20token
 ```
-### b. use makefile to run command
+### b. use docker commands to run container 
 ```bash
-make all
+1. docker-compose build --no-cache
+2. docker-compose up
+# ideally after this step there should be two container up and running i.e. {hardhat, api}
+# if there is any error like `HardhatError: HH12: Trying to use a non-local installation of Hardhat, which is not supported.`
+# do: 
+      docker-compose down  
+      docker-compose up
+
+3. chmod +x deploy.sh
+4. ./deploy.sh
+
 
 
 Alternatively, you can run individual steps as needed:
@@ -34,9 +44,12 @@ make build
 make up
 make chmod
 make deploy
+
+or 
+make all
 ```
 
-### c. to run the test inside container
+### c. to run the test
 ```bash
  docker-compose exec api sh
  npx hardhat test
